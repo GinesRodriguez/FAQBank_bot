@@ -1,0 +1,17 @@
+{
+  "name": "faqbank_bot",
+  "version": "1.0.0",
+  "description": "Bot para FAQs about banking services supported by Q&A Maker",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ginés Rodríguez",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.14.0",
+    "botbuilder-cognitiveservices": "^1.1.0",
+    "express": "^4.16.2",
+    "handoff": "^1.2.0"
+  }
+}
