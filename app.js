@@ -2,6 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const builder = require("botbuilder");
+
+var azure = require('botbuilder-azure'); 
+var documentDbOptions = {
+    host: 'https://faqbank.documents.azure.com:443/', 
+    masterKey: 'q2k5tb7GwD9LyhH8XEta5g8PRP8i26OPUURnb6xSfPAdzooMKkUv1cAEwmcrTlnF5Umw0neOakh2Ro540AilGA==', 
+    database: 'faqbank',   
+    collection: 'faqbank'
+};
+
 //const mysql = require('mysql');
 var cognitiveservices = require('botbuilder-cognitiveservices');
 //const handoff_1 = require("./handoff");
@@ -120,7 +129,7 @@ bot.dialog('/presentacion',
         if(i<1)
         {
             session.send('Welcome to FAQBank chat.' +
-                        '\n\nHello. I am Bankbot.' +
+                        '\n\nHello. I am FAQBank bot.' +
                         '\n\nI am ready to answer Frequently Answered Questions about FAQBank Online Service.' +
                         '\n\nWhat do you want to know?');
 
