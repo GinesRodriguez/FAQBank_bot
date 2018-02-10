@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const builder = require("botbuilder");
 
-var azure = require('botbuilder-azure'); 
+var azure = require('botbuilder-azure');
 var documentDbOptions = {
     host: 'https://faqbank.documents.azure.com:443/', 
     masterKey: 'q2k5tb7GwD9LyhH8XEta5g8PRP8i26OPUURnb6xSfPAdzooMKkUv1cAEwmcrTlnF5Umw0neOakh2Ro540AilGA==', 
