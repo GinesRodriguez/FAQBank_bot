@@ -11,6 +11,10 @@ var documentDbOptions = {
     collection: 'faqbank'
 };
 
+var docDbClient = new azure.DocumentDbClient(documentDbOptions);
+
+var cosmosStorage = new azure.AzureBotStorage({ gzipData: false }, docDbClient);
+
 //const mysql = require('mysql');
 var cognitiveservices = require('botbuilder-cognitiveservices');
 //const handoff_1 = require("./handoff");
@@ -37,6 +41,7 @@ const connector = new builder.ChatConnector
 });
 
 var bot = new builder.UniversalBot(connector);
+
 app.post('/api/messages', connector.listen());
 
 var recognizer = new cognitiveservices.QnAMakerRecognizer(
@@ -120,3 +125,4 @@ bot.dialog('/presentacion',
 
 bot.dialog('/preguntas', basicQnAMakerDialog);
 
+bot.set('storage', cosmosStorage);
