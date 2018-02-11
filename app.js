@@ -108,7 +108,7 @@ j=j+1;
 
     else
     {
-        session.send('Siento no poder ayudarte. Escribe **ayuda**, para ser atendido por un *Agente*');
+        session.send(qnaMakerResult.answers[0].answer);
         j=0;
     }
 };
