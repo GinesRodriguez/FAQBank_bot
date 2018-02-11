@@ -20,7 +20,6 @@ var cognitiveservices = require('botbuilder-cognitiveservices');
 //Variables globales prueba
 var i;
 var j = 0;
-var botcard = 'tarjeta';
 
 //=========================================================
 // Bot Setup
@@ -40,30 +39,6 @@ const connector = new builder.ChatConnector
 var bot = new builder.UniversalBot(connector);
 app.post('/api/messages', connector.listen());
 
-// Create endpoint for agent / call center
-app.use('/webchat', express.static('public'));
-
-// replace this function with custom login/verification for agents
-//const isAgent = (session) => session.message.user.name.startsWith("Agent");
-//const handoff = new handoff_1.Handoff(bot, isAgent);
-
-//=========================================================
-// Acciones Globales
-//=========================================================
-/*
-bot.beginDialogAction('Resetear Password','/resetear_password', { matches: /^Resetear Password/i });
-bot.beginDialogAction('Localizar Tienda','/localizar_tienda', { matches: /^Localizar Tienda/i });
-bot.beginDialogAction('Disponibilidad Art','/disponibilidad_articulo', { matches: /^Disponibilidad Art/i });
-bot.beginDialogAction('Consulta Disponibilidad','/consulta_disponibilidad');
-*/
-//========================================================
-// Bot Middleware
-//========================================================
-//bot.use(commands_1.commandsMiddleware(handoff), handoff.routingMiddleware());
-
-//=========================================================
-// Bots Dialogs
-//=========================================================
 var recognizer = new cognitiveservices.QnAMakerRecognizer(
 {
     //FAQBank
@@ -75,7 +50,7 @@ var basicQnAMakerDialog = new cognitiveservices.QnAMakerDialog(
 {
     recognizers: [recognizer],
     defaultMessage: 'I\'m sorry. I can\'t understand you. Please, make me a question about FAQBank Online Services.',
-    qnaThreshold: 0.6
+    qnaThreshold: 0.5
 });
 
 
