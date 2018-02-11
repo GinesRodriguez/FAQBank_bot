@@ -40,9 +40,11 @@ const connector = new builder.ChatConnector
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
-var bot = new builder.UniversalBot(connector);
+var bot = new builder.UniversalBot(connector); 
 
 app.post('/api/messages', connector.listen());
+
+console.log('app.post');
 
 var recognizer = new cognitiveservices.QnAMakerRecognizer(
 {
