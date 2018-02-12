@@ -1,4 +1,6 @@
 "use strict";
+require('dotenv').config()
+
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const builder = require("botbuilder");
@@ -33,13 +35,15 @@ const app = express();
 app.listen(process.env.port || process.env.PORT || 3978, '::', () => {
     console.log('Server Up');
 });
+
+console.log("process.env.MICROSOFT_APP_ID="+process.env.MICROSOFT_APP_ID)
+console.log("process.env.MICROSOFT_APP_PASSWORD="+process.env.MICROSOFT_APP_PASSWORD)
+
 // Create chat bot
 const connector = new builder.ChatConnector
 ({
-    appId: "401048ef-10b5-47ae-baf7-58e3075ef9f6",
-    appPassword: ".Wfg1HdoYk_>F]1="
-//    appId: process.env.MICROSOFT_APP_ID,
-//    appPassword: process.env.MICROSOFT_APP_PASSWORD
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
 var bot = new builder.UniversalBot(connector); 
