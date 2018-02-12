@@ -36,8 +36,10 @@ app.listen(process.env.port || process.env.PORT || 3978, '::', () => {
 // Create chat bot
 const connector = new builder.ChatConnector
 ({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
+    appId: "401048ef-10b5-47ae-baf7-58e3075ef9f6",
+    appPassword: ".Wfg1HdoYk_>F]1="
+//    appId: process.env.MICROSOFT_APP_ID,
+//    appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
 var bot = new builder.UniversalBot(connector); 
@@ -64,7 +66,9 @@ var basicQnAMakerDialog = new cognitiveservices.QnAMakerDialog(
 basicQnAMakerDialog.invokeAnswer = function (session, recognizeResult, threshold, noMatchMessage)
 {
     var qnaMakerResult = recognizeResult;
-			
+
+    console.log('invokeAnswer');
+
     if (qnaMakerResult.score >= threshold)
     {
         session.send(qnaMakerResult.answers[0].answer);
